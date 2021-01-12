@@ -1,10 +1,13 @@
 package relogio.principal;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import relogio.classe.Relogio;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Scanner menu = new Scanner (System.in);
 
@@ -22,7 +25,11 @@ public class Main {
 
         switch (opcao) {
         case 1:
-            System.out.print("\nOpção Novo Cadastro Selecionado");
+
+        	Relogio relogio = new Relogio();
+        	relogio.showHora();
+        	System.in.read();	
+        	
             break;
 
         case 2:
