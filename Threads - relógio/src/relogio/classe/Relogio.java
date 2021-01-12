@@ -1,10 +1,21 @@
 package relogio.classe;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Relogio {
 	
 	private int hora;
 	private int minuto;
 	private int segundo;
+	
+	public String dataAtual() {
+		LocalDateTime agora = LocalDateTime.now();
+		
+		DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+		String horaFormatada = formatterHora.format(agora);
+		return horaFormatada;
+	}
 	
 	public void setHora(int hora, int minuto,int segundo){
 	    hora = java.lang.Math.abs(hora);
@@ -42,3 +53,5 @@ public class Relogio {
 	}
 	
 }
+
+
