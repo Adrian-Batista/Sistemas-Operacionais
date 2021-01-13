@@ -3,21 +3,28 @@ package relogio.classe;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Relogio {
+public class Relogio extends Thread {
 	
-	private int hora;
+	/*private int hora;
 	private int minuto;
-	private int segundo;
+	private int segundo;*/
+	
+	
 	
 	public String dataAtual() {
 		LocalDateTime agora = LocalDateTime.now();
 		
-		DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-		String horaFormatada = formatterHora.format(agora);
-		return horaFormatada;
+		while(true) {
+			DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+			String horaFormatada = formatterHora.format(agora);
+			return horaFormatada;
+		}
 	}
 	
-	public void setHora(int hora, int minuto,int segundo){
+	Relogio r = new Relogio();
+	
+	
+	/*public void setHora(int hora, int minuto,int segundo){
 	    hora = java.lang.Math.abs(hora);
 	    minuto = java.lang.Math.abs(minuto);
 	    segundo = java.lang.Math.abs(segundo);
@@ -50,7 +57,7 @@ public class Relogio {
 	    if (hora > 23){
 	        hora = 0;
 	    }
-	}
+	}*/
 	
 }
 

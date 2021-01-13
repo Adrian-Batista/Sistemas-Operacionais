@@ -9,51 +9,58 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		Scanner menu = new Scanner (System.in);
+		int opcao = 0;
+		do {
+			Scanner menu = new Scanner (System.in);
+			Main.LimpaTela();
+	        System.out.print("##--Estrutura de um relógio --##\n\n");
+	        System.out.print("|-----------------------------|\n");
+	        System.out.print("| Opção 1 - Ajustar Horário   |\n");
+	        System.out.print("| Opção 2 - Visualizar horário|\n");
+	        System.out.print("| Opção 3 - Iniciar cronometro|\n");
+	        System.out.print("| Opção 4 - Parar cronometro  |\n");
+	        System.out.print("| Opção 5 - Zerar cronometro  |\n");
+	        System.out.print("| Opção 6 - Definir alarme    |\n");
+	        System.out.print("| Opção 0 - Sair              |\n");
+	        System.out.print("|-----------------------------|\n");
+	        System.out.print("Digite uma opção: ");
 
-        System.out.print("##--Estrutura de um relógio --##\n\n");
-        System.out.print("|-----------------------------|\n");
-        System.out.print("| Opção 1 - Ajustar Horário   |\n");
-        System.out.print("| Opção 2 - Visualizar horário|\n");
-        System.out.print("| Opção 3 - Iniciar cronometro|\n");
-        System.out.print("| Opção 4 - Parar cronometro  |\n");
-        System.out.print("| Opção 5 - Zerar cronometro  |\n");
-        System.out.print("| Opção 6 - Definir alarme    |\n");
-        System.out.print("|-----------------------------|\n");
-        System.out.print("Digite uma opção: ");
+	        opcao = menu.nextInt();
 
-        int opcao = menu.nextInt();
+	        Relogio relogio = new Relogio();
+	        
+	        switch (opcao) {
+	        case 1:
 
-        Relogio relogio = new Relogio();
-        
-        switch (opcao) {
-        case 1:
+	        	System.out.println("Nada");
+	        	
+	            break;
 
-        	
-        	relogio.showHora();
-        	System.in.read();	
-        	
-            break;
+	        case 2:
+	        	Thread T = new Thread(relogio);
+	        	T.start();
+	        	
+	        	System.in.read();
+	            break;
 
-        case 2:
-        	System.out.println(relogio.dataAtual());
-        	System.in.read();
-            System.out.print("\nOpção Clientes Selecionado\n");
-            break;
+	        case 3:
+	            System.out.print("\nOpção Produtos Selecionado\n");
+	            break;
 
-        case 3:
-            System.out.print("\nOpção Produtos Selecionado\n");
-            break;
 
-        default:
-            System.out.print("\nOpção Inválida!");
-            break;
+	             
+	        }	
+		}while(opcao!=0);
+		
+		
 
-        case 4:
-            System.out.print("\nAté logo!");
-            menu.close();       
-        }	
-
+	}
+	
+	public static void LimpaTela(){
+		for (int i = 0; i < 50; ++i) {
+			System.out.println ();
+		}
+	
 	}
 
 }
