@@ -39,16 +39,14 @@ public class Main {
 	        case 2:
 	        	Thread T = new Thread(relogio);
 	        	T.start();
-	        	
+	        	//System.out.println(relogio.dataAtual());
 	        	System.in.read();
 	            break;
 
 	        case 3:
 	            System.out.print("\nOpção Produtos Selecionado\n");
 	            break;
-
-
-	             
+      
 	        }	
 		}while(opcao!=0);
 		
