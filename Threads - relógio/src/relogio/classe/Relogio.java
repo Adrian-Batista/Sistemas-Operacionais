@@ -1,64 +1,38 @@
 package relogio.classe;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+public class Relogio implements Runnable {
 
-public class Relogio extends Thread {
 	
-	/*private int hora;
-	private int minuto;
-	private int segundo;*/
+	Data data;
 	
-	
-	
-	public String dataAtual() {
-		LocalDateTime agora = LocalDateTime.now();
+	public Relogio(Data data) {
+		this.data = data;
 		
-		while(true) {
-			DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-			String horaFormatada = formatterHora.format(agora);
-			return horaFormatada;
+	}
+
+	@Override
+	public void run() {
+		while(data.opcAlarme) {
+			data.segundo++;
+			
+			if(data.segundo == 60) {
+				data.segundo = 0;
+				data.minuto++;
+			}
+			
+			if(data.minuto == 60) {
+				data.minuto = 0;
+				data.hora++;
+			}
+			
+			if(data.hora == 24) 
+				data.hora = 0;
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-	
-	Relogio r = new Relogio();
-	
-	
-	/*public void setHora(int hora, int minuto,int segundo){
-	    hora = java.lang.Math.abs(hora);
-	    minuto = java.lang.Math.abs(minuto);
-	    segundo = java.lang.Math.abs(segundo);
-	    
-	    if (segundo < 60 && minuto < 60 && hora < 24){
-	        this.hora = hora;
-	        this.minuto = minuto;
-	        this.segundo = segundo;
-	    }else{
-	        System.out.println("Dados invalidos.");
-	    }
-
-	}
-	public String getHora(){
-	    return this.hora + ":" + this.minuto + ":" + segundo;
-	}
-	public void showHora(){
-	     System.out.println(this.getHora());
-	}
-	public void pulso(){
-	    segundo++;
-	    if (segundo > 59){
-	        segundo = 0;
-	        minuto++;
-	    }
-	    if (minuto > 59){
-	        minuto = 0;
-	        hora++;
-	    }
-	    if (hora > 23){
-	        hora = 0;
-	    }
-	}*/
-	
 }
-
-
