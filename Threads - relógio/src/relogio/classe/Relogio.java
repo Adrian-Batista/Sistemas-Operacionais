@@ -19,12 +19,10 @@ public class Relogio implements Runnable {
 				data.segundo = 0;
 				data.minuto++;
 			}
-			
 			if(data.minuto == 60) {
 				data.minuto = 0;
 				data.hora++;
 			}
-			
 			if(data.hora == 24) 
 				data.hora = 0;
 			
