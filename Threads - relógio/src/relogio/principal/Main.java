@@ -24,12 +24,12 @@ public class Main {
 			System.out.println("\n||||||||||||||||| RELÓGIO ||||||||||||||||||");
 			System.out.println("\n     SELECIONE UMA DAS OPÇÕES ABAIXO:\n");
 			System.out.println("1 ) - VISUALIZAR HORA ATUAL");
-			System.out.println("2 ) - AJUSTAR HORA\n");
+			System.out.println("2 ) - AJUSTAR HORA");
 			System.out.println("3 ) - VISUALIZAR CRONOMETRO");
 			System.out.println("4 ) - INICIAR CRONOMETRO");
 			System.out.println("5 ) - PARAR CRONOMETRO");
-			System.out.println("6 ) - ZERAR CRONOMETRO\n");
-			System.out.println("7 ) - DEFINIR ALARME\n");
+			System.out.println("6 ) - ZERAR CRONOMETRO");
+			System.out.println("7 ) - DEFINIR ALARME");
 			System.out.println("8 ) - SAIR");
 			int escolha = entrada.nextInt();
 			
