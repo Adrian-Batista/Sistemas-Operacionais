@@ -11,13 +11,16 @@ public class Main {
 
 	public static void main(String args[]) {
 		
-		Scanner entradaInt = new Scanner(System.in);
+		Scanner entrada = new Scanner(System.in);
+		
 		Data data = new Data();
+		int escolha = entrada.nextInt();
+		boolean opcao = true;
 		
 		Thread relogio = new Thread(new Relogio(data));
 		relogio.start();
 				
-		boolean opcao = true;
+		
 		
 		while(opcao == true) {
 			
@@ -30,16 +33,16 @@ public class Main {
 			System.out.println("6 - Zerar cronômetro");
 			System.out.println("7 - Definir alarme");
 			System.out.println("8 - Sair do sistema");
-			int escolha = entradaInt.nextInt();
+			
 			
 			switch(escolha) {
 				case 1:
 					System.out.println("\nDefina a hora:");
-					data.hora = entradaInt.nextInt();
+					data.hora = entrada.nextInt();
 					System.out.println("Defina o minuto:");
-					data.minuto = entradaInt.nextInt();
+					data.minuto = entrada.nextInt();
 					System.out.println("Defina o segundo:");
-					data.segundo = entradaInt.nextInt();
+					data.segundo = entrada.nextInt();
 					break;
 					
 				case 2:
@@ -67,9 +70,9 @@ public class Main {
 					
 				case 7:
 					System.out.println("\nDefina a hora:");
-					data.aHora = entradaInt.nextInt();
+					data.aHora = entrada.nextInt();
 					System.out.println("Defina o minuto:");
-					data.aMinuto = entradaInt.nextInt();
+					data.aMinuto = entrada.nextInt();
 					
 					Thread alarme = new Thread(new Alarme(data));
 					alarme.start();
@@ -89,7 +92,7 @@ public class Main {
 	}
 	
 	public static void LimpaTela(){
-		for (int i = 0; i < 50; ++i) {
+		for (int i = 0; i < 100; ++i) {
 			System.out.println ();
 		}
 	}
