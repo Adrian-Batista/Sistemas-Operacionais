@@ -25,21 +25,21 @@ public class Main {
 			Main.LimpaTela();
 			System.out.println("\n||||||||||||||||| RELÓGIO ||||||||||||||||||");
 			System.out.println("\n     SELECIONE UMA DAS OPÇÕES ABAIXO:\n");
-			System.out.println("1 ) - VISUALIZAR HORA ATUAL");
-			System.out.println("2 ) - AJUSTAR HORA");
-			System.out.println("3 ) - VISUALIZAR CRONOMETRO");
-			System.out.println("4 ) - INICIAR CRONOMETRO");
-			System.out.println("5 ) - PARAR CRONOMETRO");
-			System.out.println("6 ) - ZERAR CRONOMETRO");
-			System.out.println("7 ) - DEFINIR ALARME");
-			System.out.println("8 ) - SAIR");
+			System.out.println(" 1 ) - VISUALIZAR HORA ATUAL");
+			System.out.println(" 2 ) - AJUSTAR HORA");
+			System.out.println(" 3 ) - VISUALIZAR CRONOMETRO");
+			System.out.println(" 4 ) - INICIAR CRONOMETRO");
+			System.out.println(" 5 ) - PARAR CRONOMETRO");
+			System.out.println(" 6 ) - ZERAR CRONOMETRO");
+			System.out.println(" 7 ) - DEFINIR ALARME");
+			System.out.println(" 8 ) - SAIR");
 			int escolha = entrada.nextInt();
 			
 			switch(escolha) {
 			
 				case 1:
-					System.out.println("\n"+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
-					System.out.println("\n Pressione Enter");
+					System.out.println("\n Hora: "+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
+					System.out.println("\n Pressione Enter...");
 					System.in.read();
 					break;
 				
@@ -50,25 +50,39 @@ public class Main {
 					data.minuto = entrada.nextInt();
 					System.out.println("Defina o segundo:");
 					data.segundo = entrada.nextInt();
+					
+					System.out.println("\nHora Ajustada com sucesso! Pressione Enter...");
+					System.in.read();
 					break;
 					
 				case 3:
 					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
+					System.out.println("\n Pressione Enter...");
+					System.in.read();
 					break;
 					
 				case 4:
 					Thread cronometro = new Thread(new Cronometro(data));
 					data.opcCronometro = true;
 					cronometro.start();
+					
+					System.out.println("\n Cronometro inicializado! Pressione Enter...");
+					System.in.read();
 					break;
 
 				case 5:
 					data.opcCronometro = false;
 					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
+					
+					System.out.println("\n Cronometro parado! Pressione Enter...");
+					System.in.read();
 					break;
 				
 				case 6:
 					data.zerarCronometro();
+					
+					System.out.println("\n Cronometro zerado! Pressione Enter...");
+					System.in.read();
 					break;
 					
 				case 7:
