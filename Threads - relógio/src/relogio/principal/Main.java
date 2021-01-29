@@ -1,64 +1,94 @@
 package relogio.principal;
 
-import java.io.IOException;
 import java.util.Scanner;
 
+import relogio.classe.Alarme;
+import relogio.classe.Cronometro;
+import relogio.classe.Data;
 import relogio.classe.Relogio;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String args[]) {
 		
-		int opcao = 0;
-		do {
-			Scanner menu = new Scanner (System.in);
-			Main.LimpaTela();
-	        System.out.print("##--Estrutura de um relógio --##\n\n");
-	        System.out.print("|-----------------------------|\n");
-	        System.out.print("| Opção 1 - Ajustar Horário   |\n");
-	        System.out.print("| Opção 2 - Visualizar horário|\n");
-	        System.out.print("| Opção 3 - Iniciar cronometro|\n");
-	        System.out.print("| Opção 4 - Parar cronometro  |\n");
-	        System.out.print("| Opção 5 - Zerar cronometro  |\n");
-	        System.out.print("| Opção 6 - Definir alarme    |\n");
-	        System.out.print("| Opção 0 - Sair              |\n");
-	        System.out.print("|-----------------------------|\n");
-	        System.out.print("Digite uma opção: ");
-
-	        opcao = menu.nextInt();
-
-	        Relogio relogio = new Relogio();
-	        
-	        switch (opcao) {
-	        case 1:
-
-	        	System.out.println("Nada");
-	        	
-	            break;
-
-	        case 2:
-	        	Thread T = new Thread(relogio);
-	        	T.start();
-	        	//System.out.println(relogio.dataAtual());
-	        	System.in.read();
-	            break;
-
-	        case 3:
-	            System.out.print("\nOpção Produtos Selecionado\n");
-	            break;
-      
-	        }	
-		}while(opcao!=0);
+		Scanner entradaInt = new Scanner(System.in);
+		Data data = new Data();
 		
+		Thread relogio = new Thread(new Relogio(data));
+		relogio.start();
+				
+		boolean opcao = true;
 		
-
+		while(opcao == true) {
+			
+			System.out.println("\nEscolha uma das alternativas:");
+			System.out.println("1 - Ajustar horário");
+			System.out.println("2 - Visualizar horário");
+			System.out.println("3 - Iniciar cronômetro");
+			System.out.println("4 - Visualizar cronômetro");
+			System.out.println("5 - Parar cronômetro");
+			System.out.println("6 - Zerar cronômetro");
+			System.out.println("7 - Definir alarme");
+			System.out.println("8 - Sair do sistema");
+			int alternativa = entradaInt.nextInt();
+			
+			switch(alternativa) {
+				case 1:
+					System.out.println("\nDigite as horas:");
+					data.hora = entradaInt.nextInt();
+					System.out.println("Digite os minutos:");
+					data.minuto = entradaInt.nextInt();
+					System.out.println("Digite os segundos:");
+					data.segundo = entradaInt.nextInt();
+					break;
+					
+				case 2:
+					System.out.println("\n"+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
+					break;
+					
+				case 3:
+					Thread cronometro = new Thread(new Cronometro(data));
+					data.opcCronometro = true;
+					cronometro.start();
+					break;
+					
+				case 4:
+					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
+					break;
+					
+				case 5:
+					data.opcCronometro = false;
+					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
+					break;
+				
+				case 6:
+					data.zerarCronometro();
+					break;
+					
+				case 7:
+					System.out.println("\nDigite as horas:");
+					data.aHora = entradaInt.nextInt();
+					System.out.println("Digite os minutos:");
+					data.aMinuto = entradaInt.nextInt();
+					
+					Thread alarme = new Thread(new Alarme(data));
+					alarme.start();
+					break;
+				
+				case 8:
+					System.out.println("\nThau, obrigado por acessar :)");
+					data.opcRelogio = false;
+					data.opcAlarme = false;
+					data.opcCronometro = false;
+					opcao = false;
+					break;
+			}
+		}	
 	}
 	
 	public static void LimpaTela(){
 		for (int i = 0; i < 50; ++i) {
 			System.out.println ();
 		}
-	
 	}
-
 }
