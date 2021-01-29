@@ -11,31 +11,35 @@ public class Main {
 
 	public static void main(String args[]) {
 		
-		Scanner entrada = new Scanner(System.in);
 		
 		Data data = new Data();
 		boolean opcao = true;
+		
+		Scanner entrada = new Scanner(System.in);
+		
 		Thread relogio = new Thread(new Relogio(data));
 		relogio.start();
 				
-		
-		
 		while(opcao == true) {
-			int escolha = entrada.nextInt();
-			
-			System.out.println("\nEscolha uma das alternativas:");
-			System.out.println("1 - Ajustar horário");
-			System.out.println("2 - Visualizar horário");
+			System.out.println("\n||||||||||||||||| RELÓGIO ||||||||||||||||||");
+			System.out.println("\n     SELECIONE UMA DAS OPÇÕES ABAIXO:\n");
+			System.out.println("2 - VISUALIZAR HORA ATUAL");
+			System.out.println("1 - AJUSTAR HORA");
 			System.out.println("3 - Iniciar cronômetro");
 			System.out.println("4 - Visualizar cronômetro");
 			System.out.println("5 - Parar cronômetro");
 			System.out.println("6 - Zerar cronômetro");
 			System.out.println("7 - Definir alarme");
 			System.out.println("8 - Sair do sistema");
-			
+			int escolha = entrada.nextInt();
 			
 			switch(escolha) {
+			
 				case 1:
+					System.out.println("\n"+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
+					break;
+				
+				case 2:
 					System.out.println("\nDefina a hora:");
 					data.hora = entrada.nextInt();
 					System.out.println("Defina o minuto:");
@@ -44,10 +48,7 @@ public class Main {
 					data.segundo = entrada.nextInt();
 					break;
 					
-				case 2:
-					System.out.println("\n"+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
-					break;
-					
+				
 				case 3:
 					Thread cronometro = new Thread(new Cronometro(data));
 					data.opcCronometro = true;
