@@ -27,8 +27,8 @@ public class Main {
 			System.out.println("2 ) - AJUSTAR HORA\n");
 			System.out.println("3 ) - VISUALIZAR CRONOMETRO");
 			System.out.println("4 ) - INICIAR CRONOMETRO");
-			System.out.println("5 ) - Parar cronômetro");
-			System.out.println("6 ) - Zerar cronômetro");
+			System.out.println("5 ) - PARAR CRONOMETRO");
+			System.out.println("6 ) - ZERAR CRONOMETRO\n");
 			System.out.println("7 ) - Definir alarme");
 			System.out.println("8 ) - Sair do sistema");
 			int escolha = entrada.nextInt();
