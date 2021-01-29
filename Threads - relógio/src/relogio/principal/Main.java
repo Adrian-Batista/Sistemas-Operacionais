@@ -77,10 +77,12 @@ public class Main {
 				
 				case 8:
 					System.out.println("\nValeu bixo veio");
+					
 					data.opcRelogio = false;
-					data.opcAlarme = false;
 					data.opcCronometro = false;
+					data.opcAlarme = false;
 					opcao = false;
+					
 					break;
 			}
 		}	
