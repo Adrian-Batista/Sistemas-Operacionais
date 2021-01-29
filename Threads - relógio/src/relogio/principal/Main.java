@@ -29,8 +29,8 @@ public class Main {
 			System.out.println("4 ) - INICIAR CRONOMETRO");
 			System.out.println("5 ) - PARAR CRONOMETRO");
 			System.out.println("6 ) - ZERAR CRONOMETRO\n");
-			System.out.println("7 ) - Definir alarme");
-			System.out.println("8 ) - Sair do sistema");
+			System.out.println("7 ) - DEFINIR ALARME\n");
+			System.out.println("8 ) - SAIR");
 			int escolha = entrada.nextInt();
 			
 			switch(escolha) {
