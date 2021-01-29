@@ -30,15 +30,15 @@ public class Main {
 			System.out.println("6 - Zerar cronômetro");
 			System.out.println("7 - Definir alarme");
 			System.out.println("8 - Sair do sistema");
-			int alternativa = entradaInt.nextInt();
+			int escolha = entradaInt.nextInt();
 			
-			switch(alternativa) {
+			switch(escolha) {
 				case 1:
-					System.out.println("\nDigite as horas:");
+					System.out.println("\nDefina a hora:");
 					data.hora = entradaInt.nextInt();
-					System.out.println("Digite os minutos:");
+					System.out.println("Defina o minuto:");
 					data.minuto = entradaInt.nextInt();
-					System.out.println("Digite os segundos:");
+					System.out.println("Defina o segundo:");
 					data.segundo = entradaInt.nextInt();
 					break;
 					
@@ -66,9 +66,9 @@ public class Main {
 					break;
 					
 				case 7:
-					System.out.println("\nDigite as horas:");
+					System.out.println("\nDefina a hora:");
 					data.aHora = entradaInt.nextInt();
-					System.out.println("Digite os minutos:");
+					System.out.println("Defina o minuto:");
 					data.aMinuto = entradaInt.nextInt();
 					
 					Thread alarme = new Thread(new Alarme(data));
