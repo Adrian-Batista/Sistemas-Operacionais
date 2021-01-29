@@ -1,5 +1,6 @@
 package relogio.principal;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import relogio.classe.Alarme;
@@ -9,7 +10,7 @@ import relogio.classe.Relogio;
 
 public class Main {
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		
 		
 		Data data = new Data();
@@ -21,6 +22,7 @@ public class Main {
 		relogio.start();
 				
 		while(opcao == true) {
+			Main.LimpaTela();
 			System.out.println("\n||||||||||||||||| RELÓGIO ||||||||||||||||||");
 			System.out.println("\n     SELECIONE UMA DAS OPÇÕES ABAIXO:\n");
 			System.out.println("1 ) - VISUALIZAR HORA ATUAL");
@@ -37,6 +39,8 @@ public class Main {
 			
 				case 1:
 					System.out.println("\n"+ data.getHora() +":"+ data.getMinuto() +":"+ data.getSegundo());
+					System.out.println("\n Pressione Enter");
+					System.in.read();
 					break;
 				
 				case 2:
@@ -68,6 +72,7 @@ public class Main {
 					break;
 					
 				case 7:
+					
 					System.out.println("\nDefina a hora:");
 					data.aHora = entrada.nextInt();
 					System.out.println("Defina o minuto:");
@@ -75,6 +80,8 @@ public class Main {
 					
 					Thread alarme = new Thread(new Alarme(data));
 					alarme.start();
+					System.out.println("\nAlarme definido com Sucesso! Pressione Enter");
+					System.in.read();
 					break;
 				
 				case 8:
