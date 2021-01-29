@@ -76,7 +76,7 @@ public class Main {
 					break;
 				
 				case 8:
-					System.out.println("\nThau, obrigado por acessar :)");
+					System.out.println("\nValeu bixo veio");
 					data.opcRelogio = false;
 					data.opcAlarme = false;
 					data.opcCronometro = false;
