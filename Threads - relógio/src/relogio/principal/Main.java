@@ -14,17 +14,14 @@ public class Main {
 		Scanner entrada = new Scanner(System.in);
 		
 		Data data = new Data();
-		int escolha = entrada.nextInt();
 		boolean opcao = true;
-		
 		Thread relogio = new Thread(new Relogio(data));
 		relogio.start();
 				
 		
 		
 		while(opcao == true) {
-			
-			
+			int escolha = entrada.nextInt();
 			
 			System.out.println("\nEscolha uma das alternativas:");
 			System.out.println("1 - Ajustar horário");
