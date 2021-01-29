@@ -23,14 +23,14 @@ public class Main {
 		while(opcao == true) {
 			System.out.println("\n||||||||||||||||| RELÓGIO ||||||||||||||||||");
 			System.out.println("\n     SELECIONE UMA DAS OPÇÕES ABAIXO:\n");
-			System.out.println("2 - VISUALIZAR HORA ATUAL");
-			System.out.println("1 - AJUSTAR HORA");
-			System.out.println("3 - Iniciar cronômetro");
-			System.out.println("4 - Visualizar cronômetro");
-			System.out.println("5 - Parar cronômetro");
-			System.out.println("6 - Zerar cronômetro");
-			System.out.println("7 - Definir alarme");
-			System.out.println("8 - Sair do sistema");
+			System.out.println("1 ) - VISUALIZAR HORA ATUAL");
+			System.out.println("2 ) - AJUSTAR HORA\n");
+			System.out.println("3 ) - VISUALIZAR CRONOMETRO");
+			System.out.println("4 ) - INICIAR CRONOMETRO");
+			System.out.println("5 ) - Parar cronômetro");
+			System.out.println("6 ) - Zerar cronômetro");
+			System.out.println("7 ) - Definir alarme");
+			System.out.println("8 ) - Sair do sistema");
 			int escolha = entrada.nextInt();
 			
 			switch(escolha) {
@@ -48,17 +48,16 @@ public class Main {
 					data.segundo = entrada.nextInt();
 					break;
 					
-				
 				case 3:
+					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
+					break;
+					
+				case 4:
 					Thread cronometro = new Thread(new Cronometro(data));
 					data.opcCronometro = true;
 					cronometro.start();
 					break;
-					
-				case 4:
-					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
-					break;
-					
+
 				case 5:
 					data.opcCronometro = false;
 					System.out.println("\n"+ data.cHora +":"+ data.cMinuto +":"+ data.cSegundo);
