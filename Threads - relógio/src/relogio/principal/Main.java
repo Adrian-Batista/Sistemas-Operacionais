@@ -24,6 +24,8 @@ public class Main {
 		
 		while(opcao == true) {
 			
+			
+			
 			System.out.println("\nEscolha uma das alternativas:");
 			System.out.println("1 - Ajustar horário");
 			System.out.println("2 - Visualizar horário");
