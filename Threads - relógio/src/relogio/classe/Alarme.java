@@ -13,7 +13,14 @@ public class Alarme implements Runnable {
 		while(data.opcAlarme) {
 		
 			if(data.hora == data.aHora && data.minuto == data.aMinuto) {
-				System.out.println("ALARME!");
+				System.out.println("\n ~~~~~~~~~~~~~~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ A ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ L ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ A ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ R ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ M ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~ E ~~~~~~~~~~");
+				System.out.println("\n ~~~~~~~~~~~~~~~~~~~~~~~");
 				break;
 			}
 			
